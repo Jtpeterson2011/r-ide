@@ -10,10 +10,31 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:r-ide.helloWorld"
+    "onCommand:r-ide.helloWorld",
+    "onView:ride-sidebar"
   ],
   "main": "./extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ride-sidebar-view",
+          "title": "R-IDE",
+          "icon": "media/hubot.svg"
+        }
+      ]
+    },
+    "views": {
+      "ride-sidebar-view": [
+        {
+          "type": "webview",
+          "id": "ride-sidebar",
+          "name": "R-IDE",
+          "icon": "media/hubot.svg",
+          "contextualTitle": "R-IDE"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "r-ide.createNewNode",
@@ -50,8 +71,6 @@
     "eslint": "^8.26.0",
     "glob": "^8.0.3",
     "mocha": "^10.1.0",
-    "typescript": "^4.8.4",
-    "@vscode/test-electron": "^2.2.0",
-    "vscode-ros": "^2.0.0"
+    "typescript": "^4.8.4"
   }
 }
